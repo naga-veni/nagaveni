@@ -1,0 +1,37 @@
+<h1>Show Details</h1>
+<table style="width:400px">
+<tr>
+<td><strong>First name:</strong></td>
+<td><%= @project.first_name %></td></tr>
+<tr>
+<td><strong>Last name:</strong></td>
+<td><%= @project.last_name %></td>
+</tr>
+<tr>
+	<td><strong>Gender:</strong></td>
+<td><%= @project.gender %></td>
+</tr>
+<tr>
+	<td><strong>Subject Intrested:</strong></td>
+	<td><%= @project.subject_interest%></td>
+</tr>
+<tr>
+	<td><strong>Nationality:</strong></td>
+	<td><%= @project.nationality %></td>
+</tr>
+<tr>
+	<td><strong>Email:</strong></td>
+	<td><%= @project.email %></td>
+</tr>
+
+<tr>
+	<td><strong>Password:</strong></td>
+	<td><%= @project.password %></td>
+</tr>
+<tr>
+	<td><strong>Comment:</strong></td>
+	<td><%= @project.comment %></td>
+</tr>
+</table>
+
+<p><%= link_to 'Back', {:action => 'index'} %></p>

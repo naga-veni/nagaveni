@@ -1,0 +1,51 @@
+<h1>List Details</h1>
+
+<table border:1px, style="width:85%">
+	<style>
+table,th,td
+{
+border:1px solid black;
+border-collapse:collapse;
+
+}
+</style>
+	<tr bgcolor="pink" style="height:60px">
+		<th>S/N</th>
+		<th>First_Name</th>
+		<th>Last_Name</th>
+		<th>Gender</th>
+		<th>Subject_Intrested</th>
+		<th>Nationality</th>
+		<th>Email_id</th>
+		<th>Password</th>
+		<th>Comment</th>
+		<th width = '500px'>Others</th>
+		</tr>
+		
+		  <% count =0 %>
+  <%for project in @projects%>
+  <tr style="color: blue">
+  	
+  <td><%=count = count + 1%></td>
+  <td><%= project.first_name %></td>
+  <td><%= project.last_name %></td>/update
+
+  <td><% if  project.gender== true %>
+  	<%= "Male" %>
+  	<%else%>
+  	<%= "Female" %>
+  	<%end%>
+  </td> 
+  
+  <td><%project.subject_interest%></td>
+  <td><%= project.nationality%></td>
+  <td><%= project.email %></td>
+  <td><%= project.password %></td>
+  <td><%= project.comment %></td>
+  <td><%= link_to 'Edit', {:action => 'edit', :id =>project.id} %>/<%= link_to 'Show', {:action => 'show', :id => project.id} %>/<%= link_to 'Delete', {:action => 'destroy', :id => project.id}%></td>  
+   </tr>
+  <%end%>
+</table>
+
+
+<p><%= link_to 'create new', {:action => 'new'} %></p>

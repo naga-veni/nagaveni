@@ -1,0 +1,49 @@
+<h1>Create  Details</h1>
+<%= error_messages_for 'project'%>
+<%= form_tag :action=>'create' do  %>
+<%= fields_for 'projects' do |f|%>
+<table style="width:800px", border-collapse:collapse>
+	
+<tr><td><label_tag ="first_name">First Name:</label></td>
+<td><%= f.text_field 'first_name', :size => '20',  :onkeyPress => "return letter(event)"%></td><br>
+<td><label_tag="last_name">Last Name:</label></td>
+<td><%= f.text_field 'last_name', :size => '20',  :onkeyPress => "return letter(event)"%></td></tr>
+
+<tr><td><label_tag="contact_gender">Gender:</label></td>
+
+ <td><%= label_tag(:male_gender, "Male:") %>
+ <%= f.radio_button "gender", 'true', :checked => true %></td>
+ <td><%= label_tag(:male_gender, "Female:") %>
+ <%= f.radio_button "gender","false" %></td></tr>
+
+<tr><td><label_tag="sub_interest">Subject interested:</label></td></tr>
+
+<tr><td><%=label_tag(:maths, "Maths:") %></td>
+<td><%= f.check_box ("subject_interest") %></td>
+<td><%=label_tag(:science, "Science:")%></td>
+<td><%= f.check_box("subject_interest") %></td></tr>
+
+<tr><td><%=label_tag(:social_science, "Social:")%></td>
+	<td><%= f.check_box("subject_interest") %></td>
+	<td><%=label_tag(:english, "English:")%></td>
+	<td><%= f.check_box("subject_interest") %></td></tr>
+	
+	<tr><td><label for="nationality">Nationality:</label></td>
+	<td><%= select(:projects,:nationality,([['indian'],['SELECT'],['christian'],['Muslim']])) %><td></tr>
+	
+ 
+<tr><td><label_tag"email_id">Email_Id:</label></td>
+<td><%= f.text_field 'email', :size => '20'%></td></tr>
+
+<tr><td><label_tag"password">Password:</label></td>
+<td><%= f.password_field 'password', :size => '20' %></td></tr>
+	<tr><td><label_tag"comment">Comment:</label></td>
+<td><%= f.text_area 'comment', :size => '30' %></td></tr>
+
+
+</table>
+<p><tr><td><%= f.submit "Create" %></td></tr></p>
+<%end%>
+
+<%end%>
+<p><%= link_to 'Back', {:action => 'index'} %></p>
